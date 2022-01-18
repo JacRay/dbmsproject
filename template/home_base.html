@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% load static %}
+
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+		<script src="{% static 'js/popper-1.14.7.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<link
+			rel="shortcut icon"
+			type="image/x-icon"
+			href="{% static 'photos/logo/searchlogo.png' %}"
+		/>
+
+		<title>Blood Bank Management System</title>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<!-- head title -->
+			<nav class="navbar navbar-expand-sm sticky-top">
+				<a class="navbar-brand ml-5" href="#" style="display: flex">
+					<img
+						src="{% static 'photos/logo/searchlogo.png' %}"
+						alt="logo"
+						style="width: 67px"
+					/>
+				</a>
+				<h5
+					class="head text-white text-center p-3"
+					style="margin-top: 17px"
+				>
+					Blood Bank Management System
+				</h5>
+
+				<!-- navbar -->
+
+				<!-- logo -->
+
+				<!-- navbar item -->
+				<div class="col">
+					<ul class="navbar-nav flex-row-reverse">
+						<!-- Dropdown -->
+						<!-- <li class="nav-item dropdown">
+							<a
+								class="nav-link font-weight-bolder"
+								href="#"
+								data-toggle="dropdown"
+							>
+								Log In
+							</a>
+							<div class="dropdown-menu">
+								<a
+									class="
+										dropdown-item
+										font-weight-bolder
+									"
+									href="/admin/"
+									>Admin</a
+								>
+							</div>
+						</li> -->
+						<li class="nav-item">
+							<a
+								class="nav-link font-weight-bolder"
+								href="{% url 'dregsite' %}"
+								>Donor Registration</a
+							>
+						</li>
+						<li class="nav-item font-weight-bolder">
+							<a
+								class="nav-link"
+								href="{% url 'searchsite1' %}"
+								>Search</a
+							>
+						</li>
+						<li class="nav-item font-weight-bolder">
+							<a
+								class="nav-link"
+								href="{% url 'homesite1' %}"
+								style="margin-left: 312px"
+								>Home</a
+							>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<!-- Carousel  -->
+			<div class="carousel_slides">
+				<!-- <div class="opacity_carousel"></div> -->
+				<div id="slide" class="carousel slid" data-ride="carousel">
+					<!-- carousel indicators -->
+					<ul class="carousel-indicators">
+						<li
+							data-target="#slide"
+							data-slide-to="0"
+							class="active"
+						></li>
+						<li data-target="#slide" data-slide-to="1"></li>
+						<li data-target="#slide" data-slide-to="2"></li>
+					</ul>
+					<div class="carousel-inner">
+						<div class="carousel-item img-1 active">
+							<img
+								src="{{ home_slider.slider_1.url }}"
+								alt="Slid Image"
+							/>
+							<div class="carousel-caption">
+								<h3>Why do we donate blood?</h3>
+								<p>
+									Donating just one pint of blood can
+									save more than one person's life.
+								</p>
+							</div>
+						</div>
+						<!-- carousel item -->
+						<div class="carousel-item img-2">
+							<img
+								src="{{ home_slider.slider_2.url }}"
+								alt="Slid Image"
+							/>
+							<div class="carousel-caption">
+								<h3>Why do we donate blood?</h3>
+								<p>
+									Whenever you donate blood, you’re
+									giving someone the opportunity to
+									have a new lease on life, not to
+									mention that you’re also giving
+									your overall health a great boost.
+								</p>
+							</div>
+						</div>
+						<div class="carousel-item img-3">
+							<img
+								src="{{ home_slider.slider_3.url }}"
+								alt="Slid Image"
+							/>
+							<div class="carousel-caption">
+								<h3>Why do we donate blood?</h3>
+								<p>
+									It is not more painful than losing
+									a loved one that you may save by
+									donating!
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- carousel control -->
+					<a
+						class="carousel-control-prev"
+						href="#slide"
+						data-slide="prev"
+					>
+						<span class="carousel-control-prev-icon"></span>
+					</a>
+					<a
+						class="carousel-control-next"
+						href="#slide"
+						data-slide="next"
+					>
+						<span class="carousel-control-next-icon"></span>
+					</a>
+				</div>
+			</div>
+
+			{% block content %} {% endblock %}
+
+			<!-- footer -->
+			<div class="footer clearfix">
+				<p class="text-center text-white p-2">
+					Abhishikth
+					<br />
+					Arjun<br />
+					Sneha<br />
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
