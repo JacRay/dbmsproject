@@ -22,13 +22,13 @@ class DonorSearch(forms.Form):
             ),
     )
 
-    select_location = forms.CharField(
-        widget=forms.TextInput(
-            attrs={'class':'form-control',
-            'required':'True', 
-            'placeholder':'Address Eg: Ernakulam'
-            }
-        ),
-    )
+    # select_location = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={'class':'form-control',
+    #         'required':'True', 
+    #         'placeholder':'Address Eg: Ernakulam'
+    #         }
+    #     ),
+    # )
     
 

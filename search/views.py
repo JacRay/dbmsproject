@@ -11,9 +11,9 @@ def searchdisplay(request):
         search_forms = DonorSearch(request.POST)
         if search_forms.is_valid():
                 blood_group = search_forms.cleaned_data['select_blood_group']
-                location = search_forms.cleaned_data['select_location']
+                # location = search_forms.cleaned_data['select_location']
                 #change no hiv 
-                donor_filter = DonorList.objects.filter(blood_group=blood_group, home_address__icontains=location, hbsAg_hcv_hIV= 'no', 
+                donor_filter = DonorList.objects.filter(blood_group=blood_group, hbsAg_hcv_hIV= 'no', 
                 any_diseases='no', bleeding_disorders='no', is_verified = True) 
                 context = {
                     'donor_filter' : donor_filter

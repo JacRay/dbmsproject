@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'search.apps.SearchConfig',
     'dreg',
+    'employee',
     'django_otp',
     'django_otp.plugins.otp_totp',
 ]

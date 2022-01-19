@@ -1,5 +1,5 @@
 from django.db import models
-
+from employee.models import EmployeeList
 
 #Donor resistration forms data table
 class DonorList(models.Model):
@@ -28,6 +28,7 @@ class DonorList(models.Model):
         max_length=4, blank=True, null=True,
         choices=blood_choices
         )
+    staff = models.ForeignKey(EmployeeList, on_delete=models.CASCADE, blank=True, null=True)
     phone_number = models.IntegerField(blank=True, null=True)
     email = models.EmailField(max_length=100, blank=True, null=True, unique=True)
     is_verified = models.BooleanField(default=False, blank=True)

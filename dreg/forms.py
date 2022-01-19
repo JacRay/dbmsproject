@@ -1,6 +1,8 @@
+from random import choices
 from django import forms
 from django.forms import ModelForm
 from .models import DonorList
+from employee.models import EmployeeList
     
     
 #Donor registrarion forms create
@@ -11,6 +13,7 @@ class DonorRegistration(ModelForm):
         'gender',
         'date_of_birth',
         'blood_group',
+        'staff',
         'phone_number',
         'email',
         'occupation',
@@ -21,6 +24,7 @@ class DonorRegistration(ModelForm):
         'cardiac',
         'bleeding_disorders',
         'hbsAg_hcv_hIV')
+        staff : forms.ModelChoiceField(queryset=EmployeeList.objects.all(), empty_label="Select Staff", widget=forms.Select(attrs={'class':'form-control'}))
         widgets = {
             'name' : forms.TextInput(attrs={'class':'form-control', 'required':'True'}),
             'gender' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
@@ -36,7 +40,6 @@ class DonorRegistration(ModelForm):
             'cardiac' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
             'bleeding_disorders' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
             'hbsAg_hcv_hIV' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
-            
         }
         
 
