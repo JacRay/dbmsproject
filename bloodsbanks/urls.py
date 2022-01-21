@@ -23,7 +23,7 @@ from django_otp.plugins.otp_totp.models import TOTPDevice
 from django_otp.plugins.otp_totp.admin import TOTPDeviceAdmin
 from dreg.models import DonorList
 from employee.models import EmployeeList
-
+from recipient.models import RecipientList
 
 class OTPAdmin(OTPAdminSite):
     pass
@@ -34,6 +34,7 @@ admin_site.register(User)
 admin_site.register(TOTPDevice, TOTPDeviceAdmin)
 admin_site.register(DonorList)
 admin_site.register(EmployeeList)
+admin_site.register(RecipientList)
 
 
 urlpatterns = [
@@ -42,5 +43,6 @@ urlpatterns = [
     path('', include('home.urls'), name='homesite'),
     path('donorreg/', include('dreg.urls'), name='dregsite'),
     path('search/', include('search.urls'), name='searchsite'),
+    path('recipreg/',include('recipient.urls'), name='rregsite'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

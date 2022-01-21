@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'search.apps.SearchConfig',
     'dreg',
     'employee',
+    'recipient',
     'django_otp',
     'django_otp.plugins.otp_totp',
 ]

@@ -1,14 +1,12 @@
 from random import choices
 from django import forms
 from django.forms import ModelForm
-from .models import DonorList
+from .models import RecipientList
 from employee.models import EmployeeList
-    
-    
-#Donor registrarion forms create
-class DonorRegistration(ModelForm):
+
+class RecipientRegistration(forms.ModelForm):
     class Meta:
-        model = DonorList
+        model = RecipientList
         fields = ('name', 
         'gender',
         'date_of_birth',
@@ -18,12 +16,7 @@ class DonorRegistration(ModelForm):
         'email',
         'occupation',
         'home_address',
-        'date',
-        'any_diseases',
-        'allergies',
-        'cardiac',
-        'bleeding_disorders',
-        'hbsAg_hcv_hIV')
+        'date')
         staff : forms.ModelChoiceField(queryset=EmployeeList.objects.all(), empty_label="Select Staff", widget=forms.Select(attrs={'class':'form-control'}))
         widgets = {
             'name' : forms.TextInput(attrs={'class':'form-control', 'required':'True'}),
@@ -35,11 +28,5 @@ class DonorRegistration(ModelForm):
             'occupation' : forms.TextInput(attrs={'class':'form-control', 'required':'True'}),
             'home_address' : forms.Textarea(attrs={'class':'form-control', 'required':'True'}),
             'date' : forms.DateInput(attrs={'class':'form-control', 'type':'date', 'required':'True'}),
-            'any_diseases' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
-            'allergies' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
-            'cardiac' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
-            'bleeding_disorders' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
-            'hbsAg_hcv_hIV' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
         }
         
-

@@ -15,20 +15,20 @@ def donorregdisplay(request):
         forms = DonorRegistration(request.POST)
         if forms.is_valid():
             user = forms.save()
-            email = user.email
-            domain_name = get_current_site(request).domain
-            token = str(random.random()).split('.')[1]
-            user.token = token
-            user.save()
-            link = f'http://{domain_name}/donorreg/verify/{user.token}/{email}'
-            send_mail(
-            'Verify your email',
-            f'Verify your email by clicking on the link {link}',
-            settings.EMAIL_HOST_USER,
-            [email],
-            fail_silently=False,
-            )
-            msg = 'Please verify your email'
+            # email = user.email
+            # domain_name = get_current_site(request).domain
+            # token = str(random.random()).split('.')[1]
+            # user.token = token
+            # user.save()
+            # link = f'http://{domain_name}/donorreg/verify/{user.token}/{email}'
+            # send_mail(
+            # 'Verify your email',
+            # f'Verify your email by clicking on the link {link}',
+            # settings.EMAIL_HOST_USER,
+            # [email],
+            # fail_silently=False,
+            # )
+            msg = 'Resistration Successful'
             context_details ={
                 'forms' : forms,
                 'msg' : msg
@@ -49,18 +49,18 @@ def donorregdisplay(request):
 
     return render(request, 'register.html', context)
 
-def verify(request, tokenkey, emailid):
-    try:
-        user = DonorList.objects.get(token=tokenkey)
-        if user.token == tokenkey:
-            user.is_verified = True
-            user.save()
-            context_details ={
-            'msg' : ' User Verified, Registration Succesfull',
-            'user': user
-            }
-            return render(request, 'info.html', context_details)
+# def verify(request, tokenkey, emailid):
+#     try:
+#         user = DonorList.objects.get(token=tokenkey)
+#         if user.token == tokenkey:
+#             user.is_verified = True
+#             user.save()
+#             context_details ={
+#             'msg' : ' User Verified, Registration Succesfull',
+#             'user': user
+#             }
+#             return render(request, 'info.html', context_details)
         
-    except Exception as e:
-        msg = e
-        return render(request, 'info.html', {'msg' : e})
+#     except Exception as e:
+#         msg = e
+#         return render(request, 'info.html', {'msg' : e})

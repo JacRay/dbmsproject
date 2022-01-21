@@ -31,11 +31,11 @@ class DonorList(models.Model):
     staff = models.ForeignKey(EmployeeList, on_delete=models.CASCADE, blank=True, null=True)
     phone_number = models.IntegerField(blank=True, null=True)
     email = models.EmailField(max_length=100, blank=True, null=True, unique=True)
-    is_verified = models.BooleanField(default=False, blank=True)
-    token = models.CharField(max_length=100, blank=True, null=True)
+    # is_verified = models.BooleanField(default=False, blank=True)
+    # token = models.CharField(max_length=100, blank=True, null=True)
     occupation = models.CharField(max_length=10, blank=True, null=True)
     home_address = models.TextField(blank=True, null=True)
-    last_donate_date = models.DateField(blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
     any_diseases_choices=[
         ("yes","Yes"),
         ("no","No"),
