@@ -9,7 +9,7 @@
             <tr>
                 <th>Donor Name</th>
                 <th class="text-uppercase">Blood Group</th>
-                <th>Last Donate Date</th>
+                <th>Date</th>
                 <th>Address</th>
             </tr>
         </thead>
@@ -18,7 +18,7 @@
                 <tr>
                     <td><a href="{% url 'donorlistdetailsite' donor.email %}">{{donor.name}}</a></td>
                     <td>{{donor.blood_group | capfirst }}</td>
-                    <td>{{donor.last_donate_date}}</td>
+                    <td>{{donor.date}}</td>
                     <td>{{donor.home_address}}</td>
                 </tr>
             </tbody>
